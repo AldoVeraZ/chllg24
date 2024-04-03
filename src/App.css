@@ -1,38 +1,183 @@
-.App {
-  text-align: center;
+img {
+  display: block; /* Asegura que la imagen no tenga elementos a su lado */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  max-width: 100%; /* Evita que la imagen sea más ancha que su contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  text-transform: uppercase;
+}
+th {
+  text-transform: uppercase;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f0f0f0; /* Color de fondo más moderno y profesional */
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  flex-basis: calc(50% - 40px);
+  box-sizing: border-box;
+}
+
+.formulario-nota {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.formulario-nota input,
+.formulario-nota textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fafafa;
+}
+
+.formulario-nota button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulario-nota button:hover {
+  background-color: #45a049;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4caf50;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formulario-nota {
+    width: 90%;
+    margin: 0 auto; /* Centrado automático del formulario */
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) {
+  .table-container {
+    overflow-x: unset;
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .formulario-nota {
+    width: calc(100% - 40px); /* Ajusta el ancho para incluir márgenes */
   }
+
+  .formulario-nota input,
+  .formulario-nota textarea,
+  .formulario-nota button {
+    width: calc(
+      100% - 20px
+    ); /* Ajusta el ancho de los inputs para incluir márgenes */
+    margin: 10px auto; /* Margen automático para centrar los inputs */
+    padding: 10px;
+  }
+
+  table {
+    min-width: unset;
+    border: 0;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 10px;
+    display: block;
+    border-bottom: 2px solid #ddd;
+  }
+
+  td {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    border-bottom: 1px dotted #ccc;
+  }
+
+  td::before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .card {
+    min-width: auto; /* Ajusta la tarjeta para utilizar todo el ancho */
+    box-sizing: border-box;
+  }
+
+  .cards-container,
+  .app-container {
+    padding: 0; /* Elimina el padding para maximizar el espacio disponible */
+  }
+}
+
+body {
+  background-color: #e7e7e7; /* Cambio a un color de fondo más claro para un look más profesional */
 }
